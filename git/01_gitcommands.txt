@@ -1,0 +1,222 @@
+  1  git --version
+    2  apt purge git -y
+    3  git --version
+    4  add-apt-repository ppa:git-core/ppa
+    5  apt update
+    6  apt install git -y
+    7  kill 2503
+    8  apt install git -y
+    9  git --version
+   10  whoami
+   11  echo $HOME
+   12  ls -la /root
+   13  git config --global user.name globaluser
+   14  ls -la /root
+   15  cat /root/.gitconfig
+   16  git config --global user.email globaluser@gmail.com
+   17  cat /root/.gitconfig
+   18  mkdir CogProjEven
+   19  cd CogProjEven/
+   20  pwd
+   21  git init
+   22  ls -a
+   23  ls
+   24  ls .git/
+   25  git status
+   26  touch bal.java dao.java pl.java
+   27  git status
+   28  git add bal.java
+   29  git status
+   30  git rm --cached bal.java
+   31  git status
+   32  git add .
+   33  git status
+   34  git commit -m "bal.java is added" bal.java
+   35  git status
+   36  git log
+   37  cat .git/config
+   38  git config --local user.name localuser
+   39  git config --local user.email localuser@gmail.com
+   40  cat .git/config
+   41  git status
+   42  git commit -m "dao.java and pl.java files are added"
+   43  git log
+   44  git log --oneline
+   45  git remote add origin https://github.com/onlineTrainingguy/CogProjEven.git
+   46  git branch
+   47  git branch -M main
+   48  git branch
+   49  git push -u origin main
+   50  git remote set-url origin git@github.com:onlineTrainingguy/CogProjEven.git
+   51  ssh-keygen
+   52  cat /root/.ssh/id_rsa.pub
+   53  touch ssh.java
+   54  git status
+   55  git add .
+   56  git commit -m "ssh.java file is added"
+   57  git push origin main
+   58  git fetch
+   59  ls
+   60  git merge origin/main
+   61  ls
+   62  git log --oneline
+   63  git pull origin main
+   64  ls
+   65  git log --oneline
+   66  touch tmp.java
+   67  git add .
+   68  git commit -m "tmp.java file is added"
+   69  git log --oneline
+   70  git reset HEAD~1
+   71  git log --oneline
+   72  git status
+   73  git add .
+   74  git commit -m "tmp.java file is added"
+   75  git log --oneline
+   76  git reset --soft HEAD~1
+   77  git log --oneline
+   78  git status
+   79  git commit -m "tmp.java file is added"
+   80  git log --oneline
+   81  git reset --hard HEAD~1
+   82  git log --oneline
+   83  git status
+   84  ls
+   85  touch appsettings.json
+   86  git add .
+   87  git commit -m "appsettings.json file is added"
+   88  cat appsettings.json
+   89  git log --oneline
+   90  echo "{name:cognixia}" > appsettings.json
+   91  cat appsettings.json \
+   92  git add .
+   93  git commit -m "appsettings.json file is modified"
+   94  git log --oneline
+   95  git revert 26ae111
+   96  git log --oneline
+   97  cat appsettings.json
+   98  git revert 759bc82
+   99  cat appsettings.json
+  100  git branch
+  101  git branch dev1
+  102  git branch
+  103  git branch -D dev1
+  104  git branch dev1
+  105  git branch dev2
+  106  git branch
+  107  git push origin main
+  108  git push origin dev1
+  109  git push origin dev2
+  110  git checkout dev1
+  111  git pull origin dev1
+  112  ls
+  113  git checkout dev2
+  114  git pull origin dev2
+  115  ls
+  116  git checkout main
+  117  git merge dev1
+  118  l
+  119  git merge dev2
+  120  l
+  121  git push origin main
+  122  git checkout dev1
+  123  git merge main
+  124  ls
+  125  git push origin dev1
+  126  git checkout dev2
+  127  git merge main
+  128  ls
+  129  git push origin dev2
+ 1  git checkout main
+    2  ls
+    3  git checkout dev1
+    4  cat bal.java
+    5  echo "This file is modified by dev1" > bal.java
+    6  git status
+    7  git add .
+    8  git commit -m "bal.java file is updated by dev1"
+    9  cat bal.java
+   10  git checkout dev2
+   11  cat bal.java
+   12  echo "This file is modified by dev2" > bal.java
+   13  cat bal.java
+   14  git add .
+   15  git commit -m "bal.java is updated by dev2"
+   16  git checkout main
+   17  git merge dev1
+   18  git merge dev2
+   19  git mergetool --tool vimdiff
+   20  ls
+   21  git status
+   22  cat bal.java.orig
+   23  rm bal.java.orig
+   24  cat bal.java
+   25  ls
+   26  git checkout dev1
+   27  git checkout main
+   28  git commit -m "Merge Conflict is resolved"
+   29  git checkou dev1
+   30  git checkout dev1
+   31  cat bal.java
+   32  git merge main
+   33  cat bal.java
+   34  history
+
+ 35  touch 1.exe 2.exe 3.jar 4.jar 5.log 6.log
+   36  git status
+   37  vi .gitignore
+   38  git status
+   39  rm *.exe *.jar *.log .gitignore
+   40  git checkout main
+   41  git checkout -
+   42  git log --oneline
+   43  git diff 26ae111 95c4469
+   44  cd ..
+   45  mkdir cherrypick
+   46  cd cherrypick/
+   47  git init
+   48  touch m1.java m2.java
+   49  git add .
+   50  git commit -m "m1.java file is added" m1.java
+   51  git commit -m "m2.java file is added" m2.java
+   52  git log --oneline
+   53  git branch dev1
+   54  git checkout dev1
+   55  touch dev1.java dev11.java dev111.java
+   56  git add .
+   57  git commit -m "dev1.java" dev1.java
+   58  git commit -m "dev11.java" dev11.java
+   59  git commit -m "dev111.java" dev111.java
+   60  git log --oneline
+   61  git checkout master
+   62  ls
+   63  git cherry-pick f3e987d
+   64  ls
+   65  git log --oneline
+   66  git cherry-pick c809fa4 -n
+   67  ls
+   68  git status
+   69  git log --oneline
+   70  git commit -m "dev11.java file is added"
+
+
+
+dev1 machine commands
+  1  git clone -b dev1 https://github.com/onlineTrainingguy/CogProjEven.git
+    2  ls
+    3  cd CogProjEven/
+    4  ls
+    5  git log --oneline
+    6  git branch
+    7  git config --global user.name dev2
+    8  git config --global user.name dev1
+    9  git config --global user.email dev1@gmail.com
+   10  touch dev1.java
+   11  git add .
+   12  git commit -m "dev1.java file is added"
+   13  git push origin dev1
+   14  ls
+   15  git pull origin dev1
+   16  ls
+
+
