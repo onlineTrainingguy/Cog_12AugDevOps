@@ -1,0 +1,162 @@
+    1  git tag v1
+    2  ls
+    3  touch v2 v2.1
+    4  git add .
+    5  git commit -m "v2"
+    6  ls
+    7  git tag v2
+    8  ls
+    9  touch v3 v3.1
+   10  git add .
+   11  git commit -m "v3"
+   12  git tag v3
+   13  git tag
+   14  git checkout v1
+   15  ls
+   16  git checkout v2
+   17  ls
+   18  git checkout v3
+   19  ls
+   20  git push --tags
+   21  git tag | grep -E
+   22  cd ..
+   23  mkdir mr
+   24  cd mr
+   25  touch m1 m2 m3
+   26  git init
+   27  git status
+   28  git add .
+   29  git commit -m "m1" m1
+   30  git commit -m "m2" m2
+   31  git commit -m "m3" m3
+   32  git log --oneline
+   33  git branch feature
+   34  git checkout feature
+   35  ls
+   36  git log --oneline
+   37  touch f1
+   38  git status
+   39  git add .
+   40  git commit -m "f1"
+   41  git checkout -
+   42  touch m4
+   43  git add .
+   44  git commit -m "m4"
+   45  ls
+   46  git checkout -
+   47  ls
+   48  git merge master
+   49  ls
+   50  git log --oneline
+   51  cd ..
+   52  mkdir rm
+   53  cd rm/
+   54  git init
+   55  touch m1 m2 m3
+   56  git add .
+   57  git commit -m "m1" m1
+   58  git commit -m "m2" m2
+   59  git commit -m "m3" m3
+   60  git log --oneline
+   61  git branch feature
+   62  git checkout feature
+   63  ls
+   64  touch f1
+   65  git add .
+   66  git commit -m "f1"
+   67  ls
+   68  git checkout -
+   69  touch m4
+   70  git add .
+   71  git commit -m "m4"
+   72  git checkout -
+   73  ls
+   74  git rebase master
+   75  ls
+   76  git log --oneline
+   77  cd ..
+   78  mkdir stash
+   79  cd stash/
+   80  touch m1 m2
+   81  git init
+   82  git add .
+   83  git commit -m "m1" m1
+   84  git commit -m "m2" m2
+   85  git branch dev1
+   86  git checkout dev1
+   87  touch dev1.java
+   88  git add .
+   89  git checkout -
+   90  ls
+   91  git status
+   92  git checkout -
+   93  git stash save "dev1.java file is in stash"
+   94  ls
+   95  git stash list
+   96  git checkout -
+   97  ls
+   98  git checkout -
+   99  ls
+  100  git stash list
+  101  git stash pop
+  102  git status
+  103  git stash save "dev1.java"
+  104  git stash list
+  105  git stash drop stash@{0}
+  106  git stash list
+  107  ls
+  108  cd ..
+  109  mkdir squash
+  110  cd squash/
+  111  touch t1 t2 t3
+  112  touch t4
+  113  git init
+  114  git add .
+  115  git commit -m "t1" t1
+  116  git commit -m "t2" t2
+  117  git commit -m "t3" t3
+  118  git commit -m "t4" t4
+  119  git log --oneline
+  120  git rebase -i HEAD~3
+  121  git log --oneline
+  122  cd ..
+  123  mkdir worktree
+  124  touch master
+  125  git init
+  126  git add .
+  127  cd worktree/
+  128  touch master
+  129  git init
+  130  git status
+  131  git add .
+  132  git commit -m "master"
+  133  git branch dev1
+  134  git checkout dev1
+  135  touch dev1.java
+  136  git add .
+  137  git commit -m "dev1.java"
+  138  git checkout -
+  139  git branch dev2
+  140  git checkout dev2
+  141  touch dev2.java
+  142  git add .
+  143  git commit -m "dev2.java "
+  144  git checkout -
+  145  git branch
+  146  ls
+  147  git checkout dev1
+  148  ls
+  149  git checkout dev2
+  150  ls
+  151  git checkout master
+  152  git worktree add dev11 dev1
+  153  ls
+  154  git worktree add dev12 dev2
+  155  ls
+  156  git branch
+  157  cd dev11/
+  158  ls
+  159  git branch
+  160  cd ../dev12
+  161  ls
+  162  history
