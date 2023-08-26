@@ -1,0 +1,114 @@
+   1  apt update
+    2  apt install docker.io -y
+    3  docker --version
+    4  docker version
+    5  systemctl status docker
+    6  docker --help
+    7  docker ps
+    8  docker container ls
+    9  docker images
+   10  docker image ls
+   11  docker pull ubuntu
+   12  docker image ls
+   13  docker images
+   14  docker pull ubuntu:20.04
+   15  docker images
+   16  docker pull openjdk
+   17  docker container run -it --name c1 -d ubuntu
+   18  docker ps
+   19  docker container run -it --name c2 -d centos
+   20  docker container ls
+   21  docker exec -it c1 bash
+   22  docker pull nginx
+   23  docker container run -it --name web -d nginx
+   24  docker stats web
+   25  docker container run -it -m 16Mi --name web1 -d nginx
+   26  docker stats web1
+   27  docker inspect web1
+   28  docker inspect web1 | grep -w "Memory"
+   29  docker container run -it -c 410 --name web2 -d nginx
+   30  docker inspect web1 | grep -w "CpuShares"
+   31  docker inspect web2 | grep -w "CpuShares"
+   32  docker inspect web1 | grep -w "Memory"
+   33  docker container update web1 -m 32Mi
+   34  docker inspect web1 | grep -w "Memory"
+   35  docker ps
+   36  docker container ls
+   37  docker stop web1
+   38  docker ps
+   39  docker ps -a
+   40  docker start web1
+   41  docker ps -a
+   42  docker container ls -a
+   43  docker container --help
+   44  docker container ls --help
+   45  docker container ls -n 2
+   46  docker container ls -q
+   47  docker  container ls
+   48  docker restart web1
+   49  docker  container ls
+   50  docker stop web1
+   51  docker container ls -a
+   52  docker restart web1
+   53  docker container ls -a
+   54  docker pause web1
+   55  docker container ls -a
+   56  docker unpause web1
+   57  docker container ls -a
+   58  docker kill web1
+   59  docker container ls -a
+   60  docker start web1
+   61  docker container ls -a
+   62  docker stop web1
+   63  docker inspect web1
+   64  docker logs web1
+   65  docker ps -a
+   66  docker rm web1
+   67  docker ps -a
+   68  docker rm web
+   69  docker rm -f web
+   70  docker ps -a
+   71  docker rm -f $(docker ps -a -q)
+   72  docker ps -a
+   73  docker images
+   74  docker rmi centos
+   75  docker images
+   76  docker image rm ubuntu:20.04
+   77  docker rmi -f $(docker images -q)
+   78  docker images
+   79  docker container run -it --name web -d ubuntu
+   80  docker exec -it web bash
+   81  docker rm -f web
+   82  docker container run -it --name web -p 80:80 -d ubuntu
+   83  docker exec -it web bash
+   84  echo "<h1>This is super cool html file </h1>" > test.html
+   85  ls
+   86  rm -ifr myproj/
+   87  ls
+   88  docker cp test.html web:/var/www/html/
+   89  docker ps -a
+   90  docker commit web webimg
+   91  docker rm -f web
+   92  docker ps -a
+   93  docker images
+   94  docker container run -it --name web -p 80:80 -d webimg
+   95  docker exec -it web bash
+   96  docker rm -f web
+   97  docker images
+   98  docker login
+   99  docker logout
+  100  docker login
+  101  docker images
+  102  docker image tag webimg ramansharma95/webimg
+  103  docker images
+  104  docker push ramansharma95/webimg
+  105  docker image tag webimg ramansharma95/webimg1:12
+  106  docker images
+  107  docker push ramansharma95/webimg1:12
+  108  docker images
+  109  docker rmi ramansharma95/webimg1:12
+  110  docker rmi ramansharma95/webimg
+  111  docker images
+  112  docker rmi webimg
+  113  docker images
+  114  docker logout
