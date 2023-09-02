@@ -1,0 +1,77 @@
+  1  docker network ls
+    2  docker swarm init
+    3  docker network ls
+    4  docker node ls
+    5  docker network ls
+    6  docker node ls
+    7  docker node rm worker01
+    8  docker node ls
+    9  docker swarm join-token worker
+   10  docker node ls
+   11  docker swarm join-token manager
+   12  docker node ls
+   13  docker info
+   14  docker node promote worker01 worker02
+   15  docker node ls
+   16  docker node demote worker01
+   17  docker node demote worker02
+   18  docker node ls
+   19  docker node inspect worker01
+   20  docker service --help
+   21  docker service create  --name=viz --publish=8080:8080/tcp  --constraint=node.role==manager --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock dockersamples/visualizer
+   22  docker service create --name webservice --replicas 1 -d nginx
+   23  docker service ps webservice
+   24  docker service scale webservice=3
+   25  docker service rm webservice
+   26  docker service --name webservice --replicas 1 --publish 80:80 -d nginx
+   27  docker service create --name webservice --replicas 1 --publish 80:80 -d nginx
+   28  docker service rm webservice
+   29  docker service create --name webservice --replicas 1 --constraint "node.role==manager" -d nginx
+   30  docker service scale webservice=3
+   31  docker service rm webservice
+   32  docker service create --name webservice --replicas 1 --constraint "node.role==worker" -d nginx
+   33  docker service scale webservice=3
+   34  docker service rm webservice
+   35  docker service create --name webservice  --mode=global -d nginx
+   36  docker service scale webservice=3
+   37  docker service rm webservice
+   38  docker node update --label-add="env=prod" worker01
+   39  docker service create --name webservice -d --constraint="node.labels.env==prod" --publish 80:80 nginx
+   40  docker service scale webservice=3
+   41  docker service rm webservice
+   42  docker service create --name redis --replicas 5 --update-delay 10s redis:3.0.6
+   43  docker service ls
+   44  docker service update redis --image redis:3.0.7
+   45  docker service update redis --image redis:21
+   46  docker service ls
+   47  docker service rollback redis
+   48  docker service ls
+   49  docker service rm redis
+   50  ls
+   51  cat docker-compose.yaml
+   52  cp docker-compose.yaml stack.yaml
+   53  ls
+   54  docker stack ls
+   55  docker stack --help
+   56  docker stack deploy -c stack.yaml  mystack
+   57  docker stack ls
+   58  docker service ls
+   59  docker network ls
+   60  docker stack rm mystack
+   61  cd /var/lib/docker/
+   62  ls
+   63  tar -zcvf swarm.tar.gz swarm/
+   64  ls
+   65  rm -ifr swarm
+   66  ls
+   67  systemctl restart docker
+   68  docker node ls
+   69  ls
+   70  systemctl stop docker
+   71  rm -ifr swarm
+   72  tar -xvzf swarm.tar.gz
+   73  ls
+   74  rm swarm.tar.gz
+   75  ls
+   76  systemctl restart docker
+   77  docker node ls
